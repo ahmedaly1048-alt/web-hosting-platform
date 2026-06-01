@@ -72,18 +72,19 @@ export default function HeroSection() {
   const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
 
   return (
-    <div className="w-full relative bg-gradient-to-b from-[#eef4f9] via-[#f4f7fa] to-[#fafcfd] text-slate-800 overflow-hidden select-none min-h-[520px] lg:min-h-[560px] flex items-center py-6 lg:py-8 font-sans">
+    /* Changed bg-gradient to bg-white for maximum blue orb/circle prominence */
+    <div className="w-full relative bg-white text-slate-800 overflow-hidden select-none min-h-[520px] lg:min-h-[560px] flex items-center py-6 lg:py-8 font-sans border-b border-slate-100">
       
       {/* --- ENHANCED BACKDROP SHAPES, ORBS & RADIAL GRADIENTS --- */}
-      {/* High-Contrast Structural Ambient Circles */}
-      <div className="absolute top-[10%] left-[-8rem] w-[26rem] h-[26rem] bg-[#d5e6f5] rounded-full opacity-90 border-2 border-white/40 shadow-inner pointer-events-none" />
-      <div className="absolute -top-[12rem] right-[25%] w-[42rem] h-[42rem] bg-[#dae9f7] rounded-full opacity-85 border-4 border-white/30 pointer-events-none" />
-      <div className="absolute bottom-[-10%] left-[20%] w-[20rem] h-[20rem] bg-[#e1edf8] rounded-full opacity-75 pointer-events-none" />
+      {/* High-Contrast Structural Ambient Circles - More prominent on white background */}
+      <div className="absolute top-[10%] left-[-8rem] w-[26rem] h-[26rem] bg-[#dcecf9] rounded-full opacity-95 border-2 border-slate-100 shadow-inner pointer-events-none" />
+      <div className="absolute -top-[12rem] right-[25%] w-[42rem] h-[42rem] bg-[#e3f0fc] rounded-full opacity-90 border-4 border-slate-50 pointer-events-none" />
+      <div className="absolute bottom-[-10%] left-[20%] w-[20rem] h-[20rem] bg-[#eaf4fd] rounded-full opacity-85 pointer-events-none" />
       
       {/* High-Density Vibrant Blur Layers */}
-      <div className="absolute top-[-5%] left-[-5%] w-[38rem] h-[38rem] bg-sky-300/40 rounded-full blur-[90px] pointer-events-none" />
-      <div className="absolute top-[-10%] right-[15%] w-[48rem] h-[48rem] bg-sky-200/50 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-[-5%] right-[-5%] w-[35rem] h-[35rem] bg-[#cce0f5]/60 rounded-full blur-[80px] pointer-events-none" />
+      <div className="absolute top-[-5%] left-[-5%] w-[38rem] h-[38rem] bg-sky-400/20 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-[-10%] right-[15%] w-[48rem] h-[48rem] bg-blue-300/20 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-[-5%] right-[-5%] w-[35rem] h-[35rem] bg-[#cce0f5]/40 rounded-full blur-[90px] pointer-events-none" />
 
       {/* Main Container with proper side padding */}
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -94,7 +95,7 @@ export default function HeroSection() {
           {/* Left Arrow - Positioned relative to container */}
           <button 
             onClick={prevSlide} 
-            className="absolute -left-2 lg:-left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white text-slate-600 flex items-center justify-center hover:bg-slate-50 shadow-md border border-slate-200 z-20 transition-all active:scale-95"
+            className="absolute -left-2 lg:-left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white text-slate-600 flex items-center justify-center hover:bg-slate-50 shadow-md border border-slate-200 z-20 transition-all active:scale-95 cursor-pointer"
           >
             <span className="text-xl font-light">‹</span>
           </button>
@@ -132,7 +133,7 @@ export default function HeroSection() {
 
             {/* Primary Action Button & Price Container */}
             <div className="flex flex-wrap items-center gap-3 w-full mt-1">
-              <button className="bg-[#0091ff] hover:bg-[#007cdb] text-white font-bold text-[14px] px-6 py-3 rounded-xl shadow-md flex items-center gap-2 transition-all group">
+              <button className="bg-[#0091ff] hover:bg-[#007cdb] text-white font-bold text-[14px] px-6 py-3 rounded-xl shadow-md flex items-center gap-2 transition-all group cursor-pointer">
                 {slides[currentSlide].buttonText}
                 <span className="transform group-hover:translate-x-0.5 transition-transform text-sm">→</span>
               </button>
@@ -162,8 +163,8 @@ export default function HeroSection() {
               
               {/* Device Display Platform Backdrop Panel */}
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-[380px] h-[320px] bg-white/75 border border-white/80 rounded-[2rem] shadow-2xl p-3 backdrop-blur-md">
-                  <div className="w-full h-full rounded-[1.75rem] border-2 border-slate-100/70 bg-gradient-to-br from-slate-50 to-slate-100/50 relative overflow-hidden">
+                <div className="w-[380px] h-[320px] bg-white/80 border border-slate-100 rounded-[2rem] shadow-2xl p-3 backdrop-blur-md">
+                  <div className="w-full h-full rounded-[1.75rem] border-2 border-slate-100/70 bg-gradient-to-br from-slate-50 to-slate-100/30 relative overflow-hidden">
                     
                     {/* Gridlines */}
                     <div className="absolute inset-0 opacity-[0.04] bg-[linear-gradient(to_right,#000_1px,transparent_1px),linear-gradient(to_bottom,#000_1px,transparent_1px)] bg-[size:16px_16px]" />
@@ -287,7 +288,7 @@ export default function HeroSection() {
           {/* Right Arrow */}
           <button 
             onClick={nextSlide} 
-            className="absolute -right-2 lg:-right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white text-slate-600 flex items-center justify-center hover:bg-slate-50 shadow-md border border-slate-200 z-20 transition-all active:scale-95"
+            className="absolute -right-2 lg:-right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white text-slate-600 flex items-center justify-center hover:bg-slate-50 shadow-md border border-slate-200 z-20 transition-all active:scale-95 cursor-pointer"
           >
             <span className="text-xl font-light">›</span>
           </button>
@@ -300,7 +301,7 @@ export default function HeroSection() {
             <button 
               key={idx} 
               onClick={() => setCurrentSlide(idx)}
-              className={`h-1.5 rounded-full transition-all duration-300 ${
+              className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
                 currentSlide === idx ? 'w-6 bg-[#0091ff]' : 'w-1.5 bg-slate-300'
               }`}
             />
